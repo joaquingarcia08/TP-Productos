@@ -2,8 +2,8 @@
 import React from 'react'
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import oficina from '../assets/auto1.jpg';
-import equipo from '../assets/auto2.jpg';
+import compu from '../assets/compu1.jpg';
+import equipo from '../assets/equipo1.jpg';
 
 export default function Home() {
   return (
@@ -16,12 +16,12 @@ export default function Home() {
           Historia<br />
           CompuWorld fue fundada en 1995 con el objetivo de revolucionar la industria tecnológica. Desde nuestros inicios, hemos estado comprometidos con el desarrollo de soluciones innovadoras que combinan tecnología avanzada y una experiencia de usuario de excelencia.
         </p>
-        <iframe title="video" id="video1" width="1109" height="624" src="https://www.youtube.com/embed/BVvnSzMqI3M" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className='d-block mx-auto'></iframe>
+        <iframe title="video" id="video1" width="1109" height="624" src="https://www.youtube.com/embed/iExX3T70878" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className='d-block mx-auto'></iframe>
         <p>
           A lo largo de los años, hemos evolucionado hacia un enfoque global, ampliando nuestras operaciones y servicios a múltiples países. Hoy en día, CompuWorld es un referente en el desarrollo de software, soluciones en la nube y dispositivos tecnológicos que mejoran la calidad de vida de las personas.
         </p>
-        <a href='https://www.youtube.com/watch?v=Zn6scKf7k_0' target="_blank" rel="noopener noreferrer">
-          <img src={oficina} alt="oficina de CompuWorld" className='img-fluid w-50 mx-auto d-block'/>
+        <a href='https://youtu.be/iExX3T70878' target="_blank" rel="noopener noreferrer">
+          <img src={compu} alt="oficina de CompuWorld" className='img-fluid w-50 mx-auto d-block'/>
         </a>
         <p>
           Nuestra sede central, ubicada en el corazón de la ciudad, está equipada con las últimas tecnologías para fomentar un ambiente creativo e innovador. En más de dos décadas, hemos construido una reputación sólida basada en nuestro compromiso con la calidad, la innovación y la responsabilidad social.
@@ -43,7 +43,7 @@ export default function Home() {
         <h3>
           Nuestro Equipo
         </h3>
-        <a href='https://www.youtube.com/watch?v=Zn6scKf7k_0' target="_blank" rel="noopener noreferrer">
+        <a href='https://youtu.be/iExX3T70878' target="_blank" rel="noopener noreferrer">
           <img src={equipo} alt="equipo de trabajo en CompuWorld" className='img-fluid w-50 mx-auto d-block'/>
         </a>
         <p>
