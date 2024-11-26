@@ -17,20 +17,11 @@ const ProductDetail = () => {
         const productResponse = await axios.get(`http://localhost:5000/productos/${id}`);
         const fabricantesResponse = await axios.get(`http://localhost:5000/productos/${id}/fabricantes`);
         const componentesResponse = await axios.get(`http://localhost:5000/productos/${id}/componentes`);
-        console.log("Product Response (raw):", productResponse.data);
-        console.log("Fabricantes Response (raw):", fabricantesResponse.data);
-        console.log("Componentes Response (raw):", componentesResponse.data);
-        
-
 
         setProducto(productResponse.data);
         setFabricantes(fabricantesResponse.data.Fabricantes);
         setComponentes(componentesResponse.data.Componentes);
-        console.log("Products:", productResponse.data);
-        console.log("Fabricantes:", fabricantesResponse.data?.Fabricantes);
-        console.log("Componentes:", componentesResponse.data?.Componentes);
 
-        
       } catch (error) {
         console.error('Error al cargar los detalles del producto:', error);
       }
@@ -44,71 +35,78 @@ const ProductDetail = () => {
     return <p>Cargando...</p>;
   }
 
+  // Construir la URL completa de la imagen de producto y fabricantes
+  const getImageUrl = (path) => {
+    return path ? `http://localhost:5000/${path}` : 'https://via.placeholder.com/300';
+  };
+
   return (
     <div>
-    <Header />
-    <div className="container mt-5">
-      <h1>{producto.nombre}</h1>
-      <div className="row">
-        <div className="col-md-6">
-          {/* Imagen del producto */}
-          <img
-            src={producto.pathImg || 'https://via.placeholder.com/300'}
-            alt={producto.nombre}
-            className="img-fluid"
-          />
-        </div>
-        <div className="col-md-6">
-          {/* Descripción y precio del producto */}
-          <p><strong>Descripción:</strong> {producto.descripcion}</p>
-          <p><strong>Precio:</strong> ${producto.precio.toFixed(2)}</p>
-        </div>
-      </div>
-
-      <div className="mt-5">
-        <h3>Fabricantes Asociados</h3>
+      <Header />
+      <div className="container mt-5">
+        {/* Título del producto */}
+        <h1 className="text-center mb-4 display-4">{producto.nombre}</h1>
         <div className="row">
-          {/* Verificamos si fabricantes tiene datos */}
-          {fabricantes.length > 0 ? (
-            fabricantes.map((fabricante) => (
-              <div key={fabricante.id} className="col-md-4">
-                <div className="card">
-                  <img
-                    src={fabricante.pathImgPerfil || 'https://via.placeholder.com/150'}
-                    className="card-img-top"
-                    alt={fabricante.nombre}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{fabricante.nombre}</h5>
-                    <p className="card-text">{fabricante.direccion}</p>
-                    <p className="card-text">{fabricante.numeroContacto}</p>
+          {/* Imagen del producto */}
+          <div className="col-md-6 mb-4">
+            <img
+              src={getImageUrl(producto.pathImg)}
+              alt={producto.nombre}
+              className="img-fluid rounded shadow-sm"  // Imagen responsiva con borde redondeado y sombra
+            />
+          </div>
+
+          {/* Descripción y precio del producto */}
+          <div className="col-md-6">
+            <p><strong className="h5">Descripción:</strong> {producto.descripcion}</p>
+            <p><strong className="h5">Precio:</strong> ${producto.precio.toFixed(2)}</p>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <h3 className="mb-4">Fabricantes Asociados</h3>
+          <div className="row">
+            {/* Verificamos si fabricantes tiene datos */}
+            {fabricantes.length > 0 ? (
+              fabricantes.map((fabricante) => (
+                <div key={fabricante.id} className="col-md-4 mb-4">
+                  <div className="card shadow-sm">
+                    <img
+                      src={getImageUrl(fabricante.pathImgPerfil)}
+                      className="card-img-top"
+                      alt={fabricante.nombre}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{fabricante.nombre}</h5>
+                      <p className="card-text">{fabricante.direccion}</p>
+                      <p className="card-text">{fabricante.numeroContacto}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <p>No se encontraron fabricantes.</p>  
-          )}
+              ))
+            ) : (
+              <p>No se encontraron fabricantes.</p>  
+            )}
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <h3 className="mb-4">Componentes Asociados</h3>
+          <ul>
+            {/* Verificamos si componentes tiene datos */}
+            {componentes.length > 0 ? (
+              componentes.map((componente) => (
+                <li key={componente.id}>
+                  <strong>{componente.nombre}</strong>: {componente.descripcion}
+                </li>
+              ))
+            ) : (
+              <p>No se encontraron componentes.</p> 
+            )}
+          </ul>
         </div>
       </div>
-
-      <div className="mt-5">
-        <h3>Componentes Asociados</h3>
-        <ul>
-          {/* Verificamos si componentes tiene datos */}
-          {componentes.length > 0 ? (
-            componentes.map((componente) => (
-              <li key={componente.id}>
-                <strong>{componente.nombre}</strong>: {componente.descripcion}
-              </li>
-            ))
-          ) : (
-            <p>No se encontraron componentes.</p> 
-          )}
-        </ul>
-      </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };
