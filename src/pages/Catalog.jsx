@@ -24,30 +24,42 @@ const Catalog = () => {
     fetchProducts(); // Llamada a la función para obtener los productos
   }, []); // Se ejecuta una sola vez cuando el componente se monta
 
+  // Si estamos cargando, mostramos un spinner
   if (loading) {
-    return <p>Cargando productos...</p>;
+    return (
+      <div className="text-center mt-5">
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Cargando...</span>
+        </div>
+        <p>Cargando productos...</p>
+      </div>
+    );
   }
 
   return (
-    <div><Header />
-    <div className="container mt-5">
-      <h1>Catálogo de Productos</h1>
-      <div className="row">
-        {/* Iteramos sobre los productos y mostramos una tarjeta para cada uno */}
-        {productos.map((producto) => (
-          <div key={producto.id} className="col-md-4 mb-4">
-            <ProductCard
-              id={producto.id}
-              nombre={producto.nombre}
-              descripcion={producto.descripcion}
-              precio={producto.precio}
-              pathImg={producto.pathImg}
-            />
-          </div>
-        ))}
+    <div>
+      <Header />
+      <div className="container mt-5">
+        {/* Título con un margen superior adecuado */}
+        <h1 className="text-center mb-4">Catálogo de Productos</h1>
+        
+        {/* Contenedor para las tarjetas de productos */}
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-4">
+          {/* Iteramos sobre los productos y mostramos una tarjeta para cada uno */}
+          {productos.map((producto) => (
+            <div key={producto.id} className="col mb-4">
+              <ProductCard
+                id={producto.id}
+                nombre={producto.nombre}
+                descripcion={producto.descripcion}
+                precio={producto.precio}
+                pathImg={producto.pathImg}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };

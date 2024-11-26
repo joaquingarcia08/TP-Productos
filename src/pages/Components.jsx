@@ -27,9 +27,16 @@ const Components = () => {
     fetchComponents(); // Llamamos a la función para cargar los componentes
   }, []); // Se ejecuta una sola vez cuando el componente se monta
 
-  // Si estamos cargando, mostramos un mensaje de carga
+  // Si estamos cargando, mostramos un spinner
   if (loading) {
-    return <p>Cargando componentes...</p>;
+    return (
+      <div className="text-center mt-5">
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Cargando...</span>
+        </div>
+        <p>Cargando componentes...</p>
+      </div>
+    );
   }
 
   return (
@@ -38,17 +45,17 @@ const Components = () => {
       
       {/* Contenedor principal para el contenido */}
       <div className="container mt-5 flex-grow-1">
-        <h1>Lista de Componentes</h1>
+        <h1 className="text-center mb-4">Lista de Componentes</h1>
 
         {/* Si no hay componentes, mostramos un mensaje */}
         {componentes.length === 0 ? (
           <p>No se encontraron componentes.</p>
         ) : (
-          <div className="row">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {/* Iteramos sobre los componentes y los mostramos */}
             {componentes.map((componente) => (
-              <div key={componente.id} className="col-md-4 mb-4">
-                <div className="card">
+              <div key={componente.id} className="col mb-4">
+                <div className="card shadow-sm rounded">
                   <div className="card-body">
                     <h5 className="card-title">{componente.nombre}</h5>
                     <p className="card-text">{componente.descripcion}</p>

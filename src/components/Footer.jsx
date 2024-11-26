@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Footer() {
   return (
@@ -6,5 +6,5 @@ export default function Footer() {
       <p>Integrantes: Gabriel Nonis y Joaquin Garcia Salinas</p>
       <p>Contacto: direccion@empresa.com | Tel: 123-456-789</p>
     </footer>
-  )
+  );
 }
