@@ -15,17 +15,20 @@ const ProductDetail = () => {
         const productResponse = await axios.get(`http://localhost:5000/productos/${id}`);
         const fabricantesResponse = await axios.get(`http://localhost:5000/productos/${id}/fabricantes`);
         const componentesResponse = await axios.get(`http://localhost:5000/productos/${id}/componentes`);
-        console.log(fabricantesResponse.data)
+        console.log("Product Response (raw):", productResponse.data);
+        console.log("Fabricantes Response (raw):", fabricantesResponse.data);
+        console.log("Componentes Response (raw):", componentesResponse.data);
+        
 
 
         setProducto(productResponse.data);
-        console.log(productResponse.data)
+        setFabricantes(fabricantesResponse.data.Fabricantes);
+        setComponentes(componentesResponse.data.Componentes);
+        console.log("Products:", productResponse.data);
+        console.log("Fabricantes:", fabricantesResponse.data?.Fabricantes);
+        console.log("Componentes:", componentesResponse.data?.Componentes);
+
         
-        // Asegurarnos de que las respuestas sean arrays
-        setFabricantes(fabricantesResponse.data.fabricantes);
-        console.log(fabricantes)
-        setComponentes(componentesResponse.data.componentes);
-        console.log(componentes)
       } catch (error) {
         console.error('Error al cargar los detalles del producto:', error);
       }
