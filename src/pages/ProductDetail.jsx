@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; // Para obtener el ID del producto desde la URL
 import axios from 'axios';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
 
 const ProductDetail = () => {
   const { id } = useParams(); // Obtén el ID del producto desde la URL
@@ -43,6 +45,8 @@ const ProductDetail = () => {
   }
 
   return (
+    <div>
+    <Header />
     <div className="container mt-5">
       <h1>{producto.nombre}</h1>
       <div className="row">
@@ -103,6 +107,8 @@ const ProductDetail = () => {
           )}
         </ul>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };
