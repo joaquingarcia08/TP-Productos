@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
+  // Construir la URL completa de la imagen
+  const imageUrl = `http://localhost:5000/${pathImg}`;
+
   return (
     <div className="card" style={{ width: '18rem' }}>
       {/* Imagen del producto */}
       {pathImg ? (
-        <img src={pathImg} className="card-img-top" alt={nombre} />
+        <img src={imageUrl} className="card-img-top" alt={nombre} />
       ) : (
         <img
           src="https://via.placeholder.com/150"
@@ -30,15 +32,6 @@ const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
       </div>
     </div>
   );
-};
-
-// Validación de las props
-ProductCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  nombre: PropTypes.string.isRequired,
-  descripcion: PropTypes.string,
-  precio: PropTypes.number.isRequired,
-  pathImg: PropTypes.string,
 };
 
 export default ProductCard;
