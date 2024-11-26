@@ -5,6 +5,7 @@ import Manufacturers from './pages/Manufacturers.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import { Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Components from './pages/Components.jsx'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalog />} />
         <Route path="/fabricantes" element={<Manufacturers />} />
+        <Route path="/componentes" element={<Components />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
       </Routes>
     </div>

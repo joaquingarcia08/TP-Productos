@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../components/ProductCard'; 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Catalog = () => {
   const [productos, setProductos] = useState([]); // Estado para almacenar los productos
@@ -46,6 +47,7 @@ const Catalog = () => {
         ))}
       </div>
     </div>
+    <Footer />
     </div>
   );
 };
