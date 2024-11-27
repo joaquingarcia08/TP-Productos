@@ -3,6 +3,7 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import compu from '../assets/compu1.jpg';
 import equipo from '../assets/equipo1.jpg';
+import local from '../assets/local.jpg';
 
 export default function Home() {
   return (
@@ -105,6 +106,11 @@ export default function Home() {
             Instagram: <a href="https://instagram.com/compuworld" target="_blank" rel="noopener noreferrer">@compuworld</a>
           </p>
         </div>
+        <img
+            src={local}
+            alt="local de CompuWorld"
+            className="img-fluid w-50 mx-auto d-block mb-4 rounded shadow"
+          />
 
         <div className="my-4">
           <h3 className="text-center">Mapa de Ubicación</h3>
