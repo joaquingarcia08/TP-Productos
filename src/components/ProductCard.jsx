@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
+const ProductCard = ({ producto, agregarAlCarrito }) => {
+  const { id, nombre, descripcion, precio, pathImg } = producto;
   const imageUrl = `http://localhost:5000/${pathImg}`;
 
   return (
@@ -12,7 +13,7 @@ const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
           src={imageUrl}
           className="card-img-top"
           alt={nombre}
-          style={{ objectFit: 'cover', height: '200px' }} 
+          style={{ objectFit: 'cover', height: '200px' }}
         />
       ) : (
         <img
@@ -30,10 +31,19 @@ const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
         <p className="card-text">
           <strong>Precio:</strong> ${precio.toFixed(2)}
         </p>
-        {/* Enlace a ProductDetail pasando el ID del producto */}
-        <Link to={`/producto/${id}`} className="btn btn-primary mt-auto">
-          Ver Detalles
-        </Link>
+
+        {/* Botones: Ver detalles y Agregar al carrito */}
+        <div className="mt-auto">
+          <Link to={`/producto/${id}`} className="btn btn-primary mb-2 w-100">
+            Ver Detalles
+          </Link>
+          <button
+            onClick={() => agregarAlCarrito(producto)}
+            className="btn btn-success w-100"
+          >
+            Agregar al Carrito
+          </button>
+        </div>
       </div>
     </div>
   );
