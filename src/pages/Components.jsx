@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Components = () => {
-  // Estado para almacenar los componentes
   const [componentes, setComponentes] = useState([]);
   const [loading, setLoading] = useState(true);  // Estado para mostrar el cargando
 
@@ -16,16 +15,16 @@ const Components = () => {
         const response = await axios.get('http://localhost:5000/componentes');
         
         // Establecemos los datos en el estado
-        setComponentes(response.data); // Suponiendo que la respuesta es un array de componentes
-        setLoading(false); // Ya hemos recibido los datos, dejamos de cargar
+        setComponentes(response.data); 
+        setLoading(false); 
       } catch (error) {
         console.error('Error al cargar los componentes:', error);
         setLoading(false); // Si ocurre un error, dejamos de cargar
       }
     };
 
-    fetchComponents(); // Llamamos a la función para cargar los componentes
-  }, []); // Se ejecuta una sola vez cuando el componente se monta
+    fetchComponents();
+  }, []); 
 
   // Si estamos cargando, mostramos un spinner
   if (loading) {

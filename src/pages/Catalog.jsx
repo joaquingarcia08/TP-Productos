@@ -5,14 +5,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Catalog = () => {
-  const [productos, setProductos] = useState([]); // Estado para almacenar los productos
-  const [loading, setLoading] = useState(true); // Estado para manejar el estado de carga
+  const [productos, setProductos] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     // Función para obtener los productos desde el backend
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/productos'); // URL de tu API
+        const response = await axios.get('http://localhost:5000/productos'); // URL de API
         setProductos(response.data); // Guardamos los productos en el estado
         setLoading(false); // Terminamos la carga
       } catch (error) {

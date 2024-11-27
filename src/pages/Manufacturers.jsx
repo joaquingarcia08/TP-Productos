@@ -4,27 +4,27 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Manufacturers = () => {
-  const [fabricantes, setFabricantes] = useState([]);  // Estado para almacenar los fabricantes
+  const [fabricantes, setFabricantes] = useState([]); 
   const [loading, setLoading] = useState(true);  // Estado para manejar la carga
 
   useEffect(() => {
-    // Función para obtener los fabricantes desde el backend
+    
     const fetchFabricantes = async () => {
       try {
         // Realizamos la solicitud GET para obtener los fabricantes
         const response = await axios.get('http://localhost:5000/fabricantes');
         
         // Actualizamos el estado con la respuesta
-        setFabricantes(response.data);  // Suponemos que la respuesta es un array de fabricantes
-        setLoading(false);  // Dejamos de mostrar "Cargando..." cuando los datos son recibidos
+        setFabricantes(response.data);  
+        setLoading(false);  
       } catch (error) {
         console.error('Error al cargar los fabricantes:', error);
         setLoading(false);  // Si ocurre un error, dejamos de cargar
       }
     };
 
-    fetchFabricantes();  // Llamamos a la función para obtener los fabricantes
-  }, []);  // Se ejecuta solo una vez cuando el componente se monta
+    fetchFabricantes(); 
+  }, []);  
 
   // Si estamos cargando, mostramos un mensaje de carga
   if (loading) {
@@ -39,7 +39,7 @@ const Manufacturers = () => {
   }
 
   return (
-    <div className="d-flex flex-column min-vh-100">  {/* Usamos flexbox para asegurarnos de que el footer quede al final */}
+    <div className="d-flex flex-column min-vh-100">  
       <Header />
       
       <div className="container mt-5 flex-grow-1">
@@ -54,12 +54,11 @@ const Manufacturers = () => {
             {fabricantes.map((fabricante) => (
               <div key={fabricante.id} className="col mb-4">
                 <div className="card shadow-sm rounded">
-                  {/* Aseguramos que la imagen esté correctamente accesible */}
                   <img
-                    src={`http://localhost:5000/${fabricante.pathImgPerfil || 'images/default-profile.jpg'}`}  // Corregimos la ruta de la imagen
-                    className="card-img-top img-fluid rounded-circle"  // Imágenes redondeadas
+                    src={`http://localhost:5000/${fabricante.pathImgPerfil || 'images/default-profile.jpg'}`}  
+                    className="card-img-top img-fluid rounded-circle"  
                     alt={fabricante.nombre}
-                    style={{ objectFit: 'cover', height: '200px' }}  // Aseguramos que la imagen cubra el espacio sin deformarse
+                    style={{ objectFit: 'cover', height: '200px' }}  //
                   />
                   <div className="card-body">
                     <h5 className="card-title">{fabricante.nombre}</h5>

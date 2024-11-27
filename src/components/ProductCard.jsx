@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
-  // Construir la URL completa de la imagen
   const imageUrl = `http://localhost:5000/${pathImg}`;
 
   return (
@@ -13,14 +12,14 @@ const ProductCard = ({ id, nombre, descripcion, precio, pathImg }) => {
           src={imageUrl}
           className="card-img-top"
           alt={nombre}
-          style={{ objectFit: 'cover', height: '200px' }}  // Ajustamos la imagen
+          style={{ objectFit: 'cover', height: '200px' }} 
         />
       ) : (
         <img
           src="https://via.placeholder.com/150"
           className="card-img-top"
           alt="Producto sin imagen"
-          style={{ objectFit: 'cover', height: '200px' }}  // Imagen por defecto con el mismo ajuste
+          style={{ objectFit: 'cover', height: '200px' }}
         />
       )}
 
