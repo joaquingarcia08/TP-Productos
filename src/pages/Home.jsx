@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="container text-center mt-5">
-        <h2 className="mb-4 text-primary">Presentación de la Empresa CompuWorld</h2>
-        
+      <strong>
+      <div  className="container text-justify mt-5">
+        <h2 style={{ fontSize: '50px' }} className="text-center"  >Presentación de la Empresa CompuWorld</h2>
+        <br />
+        <h3 className="text-center">Historia</h3>
         <p className="mb-4 text-muted">
-          <strong>Historia</strong>
-          <br />
           CompuWorld fue fundada en 1995 con el objetivo de revolucionar la industria tecnológica. Desde nuestros inicios, hemos estado comprometidos con el desarrollo de soluciones innovadoras que combinan tecnología avanzada y una experiencia de usuario de excelencia.
         </p>
 
@@ -50,20 +50,20 @@ export default function Home() {
         </p>
 
         <div className="my-4">
-          <h3 className="text-dark">Filosofía de la Empresa</h3>
+          <h3 className="text-center">Filosofía de la Empresa</h3>
           <p className="text-muted">
-            <strong>Calidad sin compromiso:</strong> Nos dedicamos a entregar productos y servicios que superen las expectativas de nuestros clientes, asegurando estándares rigurosos de calidad en cada desarrollo.
+            <u style={{ fontSize: '24px' }}>Calidad sin compromiso:</u><br /> Nos dedicamos a entregar productos y servicios que superen las expectativas de nuestros clientes, asegurando estándares rigurosos de calidad en cada desarrollo.
           </p>
           <p className="text-muted">
-            <strong>Compromiso con la sostenibilidad:</strong> Integramos prácticas sostenibles en cada etapa de nuestro proceso, desde la producción hasta la distribución, minimizando nuestro impacto ambiental.
+            <u style={{ fontSize: '24px' }}>Compromiso con la sostenibilidad:</u><br /> Integramos prácticas sostenibles en cada etapa de nuestro proceso, desde la producción hasta la distribución, minimizando nuestro impacto ambiental.
           </p>
           <p className="text-muted">
-            <strong>Innovación constante:</strong> Invertimos significativamente en investigación y desarrollo, anticipándonos a las necesidades del mercado y creando soluciones tecnológicas que definen el futuro.
+            <u style={{ fontSize: '24px' }}>Innovación constante:</u><br /> Invertimos significativamente en investigación y desarrollo, anticipándonos a las necesidades del mercado y creando soluciones tecnológicas que definen el futuro.
           </p>
         </div>
 
         <div className="my-4">
-          <h3 className="text-dark">Nuestro Equipo</h3>
+          <h3 className="text-center">Nuestro Equipo</h3>
           <a
             href="https://youtu.be/iExX3T70878"
             target="_blank"
@@ -81,22 +81,22 @@ export default function Home() {
         </div>
 
         <div className="my-4">
-          <h3 className="text-dark">Información de Contacto</h3>
-          <p className="text-muted"><strong>Dirección:</strong> Av. Córdoba 1234, Piso 5, Oficina 2, Ciudad Autónoma de Buenos Aires, Argentina.</p>
-          <p className="text-muted"><strong>Teléfono:</strong> +54 11 9876-5432</p>
+          <h3 className="text-center">Información de Contacto</h3>
+          <p className="text-muted"><u>Dirección:</u> Av. Córdoba 1234, Piso 5, Oficina 2, Ciudad Autónoma de Buenos Aires, Argentina.</p>
+          <p className="text-muted"><u>Teléfono:</u> +54 11 9876-5432</p>
           <p className="text-muted">
-            <strong>Correo Electrónico:</strong>{' '}
+            <u>Correo Electrónico:</u>{' '}
             <a href="mailto:contacto@compuworld.com.ar">contacto@compuworld.com.ar</a>
           </p>
           <p className="text-muted">
-            <strong>Horario de Apertura:</strong>
+            <u>Horario de Apertura:</u>
             <br />
             Lunes a Viernes: 9:00 AM - 6:00 PM<br />
             Sábados: 10:00 AM - 2:00 PM<br />
             Domingos: Cerrado
           </p>
           <p className="text-muted">
-            <strong>Redes Sociales:</strong>
+            <u>Redes Sociales:</u>
             <br />
             Facebook: <a href="https://facebook.com/compuworld" target="_blank" rel="noopener noreferrer">facebook.com/compuworld</a>
             <br />
@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         <div className="my-4">
-          <h3 className="text-dark">Mapa de Ubicación</h3>
+          <h3 className="text-center">Mapa de Ubicación</h3>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.1839958626883!2d-58.387001388257644!3d-34.599508557163865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac7ea9eea65%3A0xf81aef973e067eb8!2sAv.%20C%C3%B3rdoba%201234%20Piso%205%2C%20Oficina%202%2C%20C1055AAP%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1732137031362!5m2!1ses-419!2sar"
             width="100%"
@@ -121,6 +121,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      </strong>
     </div>
   );
 }
